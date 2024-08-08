@@ -1,0 +1,21 @@
+name: go_cart
+
+services:
+  db:
+    image: postgres:latest
+    container_name: db
+    volumes:
+      - db:/var/lib/postgres
+    ports:
+      - "5432:5432"
+    deploy:
+      resources:
+        limits:
+          memory: 0.5G
+    environment:
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_USER=yash
+      - POSTGRES_DB=go_cart
+
+volumes:
+  db:
