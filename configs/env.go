@@ -20,8 +20,8 @@ var (
 	envOnce     sync.Once
 )
 
-// loadEnv loads environment variables from a .env file if it exists, and checks if all required variables are present.
-func loadEnv() *Env {
+// LoadEnv loads environment variables from a .env file if it exists, and checks if all required variables are present.
+func LoadEnv() *Env {
 	envOnce.Do(func() {
 		// Attempt to load .env file
 		if err := godotenv.Load(); err != nil {
@@ -62,7 +62,7 @@ func loadEnv() *Env {
 // GetEnv returns the singleton instance of Env.
 func GetEnv() *Env {
 	if envInstance == nil {
-		return loadEnv()
+		return LoadEnv()
 	}
 	return envInstance
 }

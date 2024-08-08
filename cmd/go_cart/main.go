@@ -12,6 +12,7 @@ import (
 )
 
 func main() {
+	configs.Init()
 
 	PORT := ":" + configs.GetEnv().PORT
 

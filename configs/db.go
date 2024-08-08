@@ -13,7 +13,7 @@ var (
 	dbOnce sync.Once
 )
 
-func connectDB() *database.Queries {
+func createDBConnection() *database.Queries {
 	DATABASE_URL := GetEnv().DATABASE_URL
 	dbOnce.Do(func() {
 		var err error
