@@ -7,7 +7,7 @@ import (
 	"time"
 
 	"github.com/nrednav/cuid2"
-	env "github.com/yash91989201/go_cart/configs"
+	"github.com/yash91989201/go_cart/configs"
 	"github.com/yash91989201/go_cart/internal/database"
 	"github.com/yash91989201/go_cart/models"
 	"github.com/yash91989201/go_cart/utils"
@@ -83,8 +83,8 @@ func (c *UserControllers) LoginUser(w http.ResponseWriter, r *http.Request) {
 		Value:    sessionId,
 		Path:     "/",
 		MaxAge:   int(time.Now().Add(time.Hour * 24).Unix()),
-		HttpOnly: env.GetEnv().ENV == "prod",
-		Secure:   env.GetEnv().ENV == "prod",
+		HttpOnly: configs.GetEnv().ENV == "prod",
+		Secure:   configs.GetEnv().ENV == "prod",
 		SameSite: http.SameSiteLaxMode,
 	})
 
